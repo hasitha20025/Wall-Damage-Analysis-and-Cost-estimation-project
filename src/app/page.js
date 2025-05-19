@@ -1,6 +1,7 @@
 "use client";
 import { InferenceEngine, CVImage } from "inferencejs";
 import { useEffect, useRef, useState, useMemo } from "react";
+import MaterialForm from "./components/material-form";
 
 function App() {
   const inferEngine = useMemo(() => {
@@ -111,23 +112,32 @@ function App() {
     });
   };
   return (
-  <div className="w-full max-w-full px-4">
-    <div className="relative w-full max-w-md mx-auto aspect-video">
-      <video
-        id="video"
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        playsInline
-        autoPlay
-        muted
-      />
-      <canvas
-        id="canvas"
-        ref={canvasRef}
-        className="absolute top-0 left-0 w-full h-full"
-      />
+  <>
+    
+    <div className="w-full max-w-full px-4 mt-20">
+      <div className="relative w-full max-w-md mx-auto aspect-video">
+        <video
+          id="video"
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          playsInline
+          autoPlay
+          muted
+        />
+        <canvas
+          id="canvas"
+          ref={canvasRef}
+          className="absolute top-0 left-0 w-full h-full"
+        />
+      </div>
+
+      <section id="settings"> 
+        <MaterialForm />
+      </section>
+
     </div>
-  </div>
+  </>
+
   );
 }
 
