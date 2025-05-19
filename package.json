@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
     "inferencejs": "^1.0.12",
     "next": "^14.2.28",
+    "postcss": "^8.5.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@types/node": "^20",

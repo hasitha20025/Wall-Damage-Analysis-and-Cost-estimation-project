@@ -111,24 +111,23 @@ function App() {
     });
   };
   return (
-    <div>
-      <div className="">
-        <video
-          id="video"
-          width="640"
-          height="480"
-          ref={videoRef}
-          style={{ position: "relative" }}
-        />
-        <canvas
-          id="canvas"
-          width="640"
-          height="480"
-          ref={canvasRef}
-          style={{ position: "absolute", top: 0, left: 0 }}
-        />
-      </div>
+  <div className="w-full max-w-full px-4">
+    <div className="relative w-full max-w-md mx-auto aspect-video">
+      <video
+        id="video"
+        ref={videoRef}
+        className="w-full h-full object-cover"
+        playsInline
+        autoPlay
+        muted
+      />
+      <canvas
+        id="canvas"
+        ref={canvasRef}
+        className="absolute top-0 left-0 w-full h-full"
+      />
     </div>
+  </div>
   );
 }
 
