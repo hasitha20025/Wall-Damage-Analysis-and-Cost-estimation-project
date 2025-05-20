@@ -3,7 +3,7 @@
 import { InferenceEngine, CVImage } from "inferencejs";
 import { useEffect, useRef, useState, useMemo } from "react";
 import MaterialForm from "./components/material-form";
-import Image from 'next/image'
+
 
 
 export default function Home() {
@@ -162,7 +162,7 @@ export default function Home() {
 
       <div className="relative w-full max-w-md mx-auto aspect-video">
         {uploadedImage && (
-          <Image
+          <img
             src={uploadedImage.src}
             className="w-full h-full object-cover"
             alt="Uploaded"
