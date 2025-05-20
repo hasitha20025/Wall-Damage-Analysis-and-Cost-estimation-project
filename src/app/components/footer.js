@@ -9,7 +9,6 @@ export default function Footer() {
           © {new Date().getFullYear()}{" "}
           Wall-Damage-Analysis-and-Cost-Estimation.com. All rights reserved.
         </p>
-
       </div>
     </div>
   );
