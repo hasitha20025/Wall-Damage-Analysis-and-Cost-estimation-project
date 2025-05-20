@@ -22,12 +22,12 @@ export default function Home() {
   const PIXEL_TO_M2 = 1 / (PIXELS_PER_METER * PIXELS_PER_METER);
 
   // Damage repair costs per square meter in LKR
-  const damageCostRates = {
-    crack_damages: 1500,
-    flaking_paint: 1000,
+const damageCostRates = {
+    crack_damage: 1500,
+    flaking_paint_damage: 1000,
     water_damage: 1200,
-    missing_piece: 1800,
-  };
+    missing_piece_damage: 1800,
+  };
 
   useEffect(() => {
     if (!modelLoading) {
