@@ -15,12 +15,16 @@ export default function Home() {
 
   const canvasRef = useRef();
 
-  // Your damage cost rates in LKR
+  // Define how many pixels represent 1 meter (this is based on your camera setup)
+  const PIXELS_PER_METER = 100; // Example: 100 pixels = 1 meter
+  const PIXEL_TO_M2 = 1 / (PIXELS_PER_METER * PIXELS_PER_METER);
+
+  // Damage repair costs per square meter in LKR
   const damageCostRates = {
-    crack_damages: 5000,
-    flaking_paint: 7000,
-    water_damage: 2000,
-    missing_piece: 25000,
+    crack_damages: 1500,
+    flaking_paint: 1000,
+    water_damage: 1200,
+    missing_piece: 1800,
   };
 
   useEffect(() => {
@@ -80,15 +84,15 @@ export default function Home() {
         const predictionsWithCost = predictions.map((prediction) => {
           const { width, height } = prediction.bbox;
           const pixelArea = width * height;
+          const areaInM2 = pixelArea * PIXEL_TO_M2;
           const damageType = prediction.class;
           const rate = damageCostRates[damageType] || 0;
-
-          // Fixed cost per damage type, no area scaling
-          const estimatedCost = rate;
+          const estimatedCost = rate * areaInM2;
 
           return {
             ...prediction,
             pixelArea,
+            areaInM2,
             estimatedCost,
           };
         });
@@ -135,7 +139,6 @@ export default function Home() {
     URL.revokeObjectURL(url);
   };
 
-  // Total cost calculation
   const totalEstimatedCost = predictionsList.reduce(
     (acc, p) => acc + p.estimatedCost,
     0
@@ -181,9 +184,9 @@ export default function Home() {
           {predictionsList.map((prediction, index) => (
             <li key={index} className="text-sm text-gray-800">
               <strong>{prediction.class}</strong> —{" "}
-              {Math.round(prediction.confidence * 100)}% — Pixel Area:{" "}
-              {prediction.pixelArea} px² — Estimated Cost: LKR{" "}
-              {prediction.estimatedCost.toLocaleString()}
+              {Math.round(prediction.confidence * 100)}% — Area:{" "}
+              {prediction.areaInM2.toFixed(4)} m² — Estimated Cost: LKR{" "}
+              {Math.round(prediction.estimatedCost).toLocaleString()}
             </li>
           ))}
         </ul>
@@ -192,7 +195,7 @@ export default function Home() {
           <>
             <div className="mt-4 font-bold text-lg text-center">
               Total Estimated Repair Cost: LKR{" "}
-              {totalEstimatedCost.toLocaleString()}
+              {Math.round(totalEstimatedCost).toLocaleString()}
             </div>
 
             <button
