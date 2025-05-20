@@ -1,14 +1,20 @@
-import React from 'react'
+import React from 'react';
 
 export default function Header() {
   return (
-    <div className="bg-primary fixed top-0 left-0 w-full text-white py-4 text-center shadow-md z-50">
-      <h1 className="text-2xl font-bold md:text-3xl relative">
-        Wall Damage Analysis and Cost Estimation
-        <a href='#settings'  className="absolute top-0 right-0 mr-4 cursor-pointer">
+    <header className="bg-primary fixed top-0 left-0 w-full text-white py-3 px-4 shadow-md z-50">
+      <div className="relative flex items-center justify-center">
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-center">
+          Wall Damage Analysis and Cost Estimation
+        </h1>
+        <a
+          href="#settings"
+          className="absolute right-0 top-1/2 -translate-y-1/2 text-xl sm:text-2xl cursor-pointer"
+          aria-label="Settings"
+        >
           ⚙️
         </a>
-      </h1>
-    </div>
-  )
+      </div>
+    </header>
+  );
 }
