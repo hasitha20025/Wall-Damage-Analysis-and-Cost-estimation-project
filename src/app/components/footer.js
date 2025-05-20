@@ -9,15 +9,7 @@ export default function Footer() {
           © {new Date().getFullYear()}{" "}
           Wall-Damage-Analysis-and-Cost-Estimation.com. All rights reserved.
         </p>
-        <p className="text-xs mt-2">
-          <a href="/privacy" className="hover:underline">
-            Privacy Policy
-          </a>{" "}
-          |{" "}
-          <a href="/terms" className="hover:underline">
-            Terms of Service
-          </a>
-        </p>
+
       </div>
     </div>
   );
