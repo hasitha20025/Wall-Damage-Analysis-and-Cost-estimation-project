@@ -113,7 +113,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full max-w-full px-4 mt-30">
+      <div className="w-full max-w-full px-4 mt-20">
         {/* Webcam */}
         <div className="relative w-full max-w-md mx-auto aspect-video">
           <video
