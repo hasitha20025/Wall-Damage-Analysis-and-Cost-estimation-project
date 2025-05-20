@@ -1,8 +1,9 @@
-import React from 'react';
+// I:\FromGit\Wall-Damage-Analysis-and-Cost-Estimation-project\src\app\components\header.js
+import React from "react";
 
 export default function Header() {
   return (
-    <header className="bg-primary fixed top-0 left-0 w-full text-white py-3 px-4 shadow-md z-50">
+    <header className="bg-blue-500 fixed top-0 left-0 w-full text-white py-3 px-4 shadow-md z-50">
       <div className="relative flex items-center justify-center">
         <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-center">
           Wall Damage Analysis and Cost Estimation
